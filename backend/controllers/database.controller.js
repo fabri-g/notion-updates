@@ -1,7 +1,6 @@
 // controllers/database.controller.js
 
-const { queryDatabase } = require('./services/database.service');
-const { fetchDatabase} = require('../services/database.service');
+const { queryDatabase, fetchDatabase } = require('./services/database.service');
 
 async function getDatabase(req, res) {
     const databaseId = process.env.NOTION_DATABASE_ID;
