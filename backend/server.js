@@ -3,19 +3,21 @@ require("dotenv").config()
 const express = require("express")
 const connectDatabase = require('./config/database.config'); 
 
+// Database connection
 connectDatabase();
 
 const app = express()
 
-const { getDatabase, getSavedDatabase } = require('./controllers/database.controller');
-const { getProjectUpdateReport } = require('./controllers/gptController');
+// Routes
+const databaseRoutes = require('./routes/databaseRoutes');
+const gptRoutes = require('./routes/gptRoutes');
 
 app.use(express.static("public"))
 app.use(express.json()) // for parsing application/json
 
-app.post("/databases", getDatabase);
-app.get("/databases/:databaseId", getSavedDatabase);
-app.post("/gpt-analysis", getProjectUpdateReport);
+// Use routes
+app.use("/databases", databaseRoutes);
+app.use("/gpt", gptRoutes);
 
 const listener = app.listen(process.env.PORT, function () {
     console.log("Your app is listening on port " + listener.address().port)
