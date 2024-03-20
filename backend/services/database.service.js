@@ -3,7 +3,7 @@
 const NotionResponse = require('../models/database.model');
 const { Client } = require('@notionhq/client');
 
-const notion = new Client({ auth: process.env.NOTION_KEY });
+const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 async function queryDatabase(databaseId) {
     try {
