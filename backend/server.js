@@ -1,5 +1,10 @@
+// server.js
 require("dotenv").config()
 const express = require("express")
+const connectDatabase = require('./config/database.config'); 
+
+connectDatabase();
+
 const app = express()
 
 const { getDatabase } = require('./controllers/database.controller');
