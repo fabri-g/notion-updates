@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+
+  body {
+    background-color: #F6F4F3;
+    font-family: sans-serif;
+}
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
