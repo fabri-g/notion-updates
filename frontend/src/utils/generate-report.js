@@ -24,6 +24,7 @@ export const generateReport = async (apiUrl, selectedFrom, selectedTo) => {
     return reportResponse.data.report;
   } catch (error) {
     console.error("Error generating report:", error);
+    window.alert("Error generating report. Please try again.");
     throw error;
   }
 };

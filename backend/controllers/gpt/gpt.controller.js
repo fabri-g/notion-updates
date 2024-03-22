@@ -1,6 +1,6 @@
 // controllers/gpt.controller.js
 
-const { generateProjectUpdateReport } = require('../services/gpt.service');
+const { generateProjectUpdateReport } = require('../../services/gpt.service');
 
 async function getProjectUpdateReport(req, res) {
   const { oldSnapshot, newSnapshot } = req.body;

@@ -16,6 +16,8 @@ const useFetchTimestamps = (apiUrl) => {
       .catch(error => {
         setError(error);
         setLoading(false);
+
+        window.alert(`Error fetching database timestamps: ${error.message}`);
       });
   }, [apiUrl]);
 

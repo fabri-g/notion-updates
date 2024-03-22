@@ -7,6 +7,7 @@ export const saveCurrentDatabase = async (apiUrl) => {
     return response.data;
   } catch (error) {
     console.error("Error saving the database:", error);
+    window.alert("Error saving the database. Please try again.");
     throw error;
   }
 };
