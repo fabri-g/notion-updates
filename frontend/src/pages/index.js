@@ -16,7 +16,14 @@ function HomePage() {
   const [selectedToLabel, setSelectedToLabel] = useState('Select To');
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return (
+    <Alert
+      message="Error"
+      description={`Failed to fetch data: ${error.message}`}
+      type="error"
+      showIcon
+    />
+  );
   // Preparing dropdown items
   const databaseMenuItems = (type) => databases.map((db) => ({
     key: db.id,
@@ -70,15 +77,19 @@ function HomePage() {
       <Button  onClick={handleSaveDatabase}>Save</Button>
       <Divider />
       <h2>Get a Status Report</h2>
-      {renderDropdown('From', selectedFromLabel)}
-      <br />
-      {renderDropdown('To', selectedToLabel)}
-      <br />
-      <Button onClick={handleGenerateReport} style={{ marginTop: 20 }}>Create Report</Button>
-      {reportText && (
-        <Card title="Report" style={{ marginTop: 20 }}>
-          <p>{reportText}</p>
-        </Card>
+      {databases.length > 0 && (
+        <>
+          {renderDropdown('From', selectedFromLabel)}
+          <br />
+          {renderDropdown('To', selectedToLabel)}
+          <br />
+          <Button onClick={handleGenerateReport} style={{ marginTop: 20 }}>Create Report</Button>
+          {reportText && (
+            <Card title="Report" style={{ marginTop: 20 }}>
+              <p>{reportText}</p>
+            </Card>
+          )}
+        </>
       )}
     </div>
   );
